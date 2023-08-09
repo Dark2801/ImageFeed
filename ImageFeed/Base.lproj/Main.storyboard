@@ -33,7 +33,6 @@
                                                     <color key="backgroundColor" name="YP Black (iOS)"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="361" id="anc-Qw-wtb"/>
-                                                        <constraint firstAttribute="height" constant="132.33000000000001" id="fnm-uA-gcS"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
