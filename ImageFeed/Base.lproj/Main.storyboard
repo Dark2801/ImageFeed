@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BAE-3U-fUq">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="16" y="0.0" width="361" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -27,11 +27,14 @@
                         <color key="backgroundColor" name="YP Black (iOS)"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="BAE-3U-fUq" secondAttribute="bottom" id="HC0-Os-rLo"/>
-                            <constraint firstAttribute="trailing" secondItem="BAE-3U-fUq" secondAttribute="trailing" id="kNS-5Q-gdM"/>
-                            <constraint firstItem="BAE-3U-fUq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p3L-zc-uz8"/>
+                            <constraint firstAttribute="trailing" secondItem="BAE-3U-fUq" secondAttribute="trailing" constant="16" id="kNS-5Q-gdM"/>
+                            <constraint firstItem="BAE-3U-fUq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="p3L-zc-uz8"/>
                             <constraint firstItem="BAE-3U-fUq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v7F-A4-OWz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="BAE-3U-fUq" id="slb-GC-KOy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
