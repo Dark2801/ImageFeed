@@ -11,9 +11,10 @@ class ImagesListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
 
     private let photosName: [String] = Array(0..<20).map{ "\($0)" }
-
- 
-
+   override func viewDidLoad() {
+        super.viewDidLoad()
+  
+    }
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
