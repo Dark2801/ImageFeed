@@ -7,5 +7,8 @@
 
 import UIKit
 final class ImagesListCell: UITableViewCell {
-  static let reuseIdentiFilter = "ImagesListCell"
+    static let reuseIdentiFilter = "ImagesListCell"
+    @IBOutlet var cellImage: UIImageView!
+    @IBOutlet var likeButton: UIButton!
+    @IBOutlet var dateLabel: UILabel!
 }
