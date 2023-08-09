@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,27 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BAE-3U-fUq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jsm-rl-5hM">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="YP Black (iOS)"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="L8o-Gx-vdp"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7DW-6q-iAg"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yyk-6T-7Xx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="iaj-e6-J5A"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black (iOS)"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="BAE-3U-fUq" secondAttribute="bottom" id="HC0-Os-rLo"/>
-                            <constraint firstAttribute="trailing" secondItem="BAE-3U-fUq" secondAttribute="trailing" id="kNS-5Q-gdM"/>
-                            <constraint firstItem="BAE-3U-fUq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p3L-zc-uz8"/>
-                            <constraint firstItem="BAE-3U-fUq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="v7F-A4-OWz"/>
+                            <constraint firstItem="Jsm-rl-5hM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D9e-MA-MVC"/>
+                            <constraint firstAttribute="trailing" secondItem="Jsm-rl-5hM" secondAttribute="trailing" id="jdS-2q-gGg"/>
+                            <constraint firstAttribute="bottom" secondItem="Jsm-rl-5hM" secondAttribute="bottom" id="rjM-oe-XL1"/>
+                            <constraint firstItem="Jsm-rl-5hM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="s5w-Y8-yzk"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="BAE-3U-fUq" id="slb-GC-KOy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,8 +45,5 @@
         <namedColor name="YP Black (iOS)">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
