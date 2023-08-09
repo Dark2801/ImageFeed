@@ -13,6 +13,7 @@
 		BD7B95912A82A67A00ACFEB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7B958F2A82A67A00ACFEB4 /* Main.storyboard */; };
 		BD7B95932A82A67C00ACFEB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7B95922A82A67C00ACFEB4 /* Assets.xcassets */; };
 		BD7B95962A82A67C00ACFEB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD7B95942A82A67C00ACFEB4 /* LaunchScreen.storyboard */; };
+		BD7B959E2A83520100ACFEB4 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BD7B95922A82A67C00ACFEB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD7B95952A82A67C00ACFEB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD7B95972A82A67C00ACFEB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				BD7B95892A82A67A00ACFEB4 /* AppDelegate.swift */,
 				BD7B958B2A82A67A00ACFEB4 /* SceneDelegate.swift */,
 				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
+				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
 				BD7B958F2A82A67A00ACFEB4 /* Main.storyboard */,
 				BD7B95922A82A67C00ACFEB4 /* Assets.xcassets */,
 				BD7B95942A82A67C00ACFEB4 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD7B958E2A82A67A00ACFEB4 /* ImagesListViewController.swift in Sources */,
+				BD7B959E2A83520100ACFEB4 /* ImagesListCell.swift in Sources */,
 				BD7B958A2A82A67A00ACFEB4 /* AppDelegate.swift in Sources */,
 				BD7B958C2A82A67A00ACFEB4 /* SceneDelegate.swift in Sources */,
 			);
