@@ -58,16 +58,24 @@
 		BD7B95882A82A67A00ACFEB4 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				BD7B959F2A8352B000ACFEB4 /* ImagesList */,
 				BD7B95892A82A67A00ACFEB4 /* AppDelegate.swift */,
 				BD7B958B2A82A67A00ACFEB4 /* SceneDelegate.swift */,
-				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
-				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
 				BD7B958F2A82A67A00ACFEB4 /* Main.storyboard */,
 				BD7B95922A82A67C00ACFEB4 /* Assets.xcassets */,
 				BD7B95942A82A67C00ACFEB4 /* LaunchScreen.storyboard */,
 				BD7B95972A82A67C00ACFEB4 /* Info.plist */,
 			);
 			path = ImageFeed;
+			sourceTree = "<group>";
+		};
+		BD7B959F2A8352B000ACFEB4 /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
+				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
+			);
+			path = ImagesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
