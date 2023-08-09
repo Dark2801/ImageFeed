@@ -18,15 +18,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jsm-rl-5hM">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="16" y="0.0" width="361" height="852"/>
                                 <color key="backgroundColor" name="YP Black (iOS)"/>
+                                <color key="sectionIndexBackgroundColor" name="YP White (Alpha 50) (iOS)"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" id="EVp-YT-abB" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="221" id="EVp-YT-abB" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EVp-YT-abB" id="Oxt-1v-pht">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="221"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uer-y4-Pki" userLabel="Cell Image">
+                                                    <rect key="frame" x="0.0" y="4" width="361" height="213"/>
+                                                    <color key="backgroundColor" name="YP Black (iOS)"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="361" id="anc-Qw-wtb"/>
+                                                        <constraint firstAttribute="height" constant="132.33000000000001" id="fnm-uA-gcS"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius = 16">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds = true" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ov-OA-lIT" userLabel="Like Button">
+                                                    <rect key="frame" x="317" y="4" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="V7l-IG-vKm"/>
+                                                        <constraint firstAttribute="height" constant="44" id="a9R-Ay-EhV"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="Active"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09 августа 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7i-P9-Gwz" userLabel="Data Label">
+                                                    <rect key="frame" x="8" y="193.33333333333334" width="110" height="15.666666666666657"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15.67" id="Mai-Zs-AbD"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="110" id="MiD-jU-NTu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" name="YP Withe"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="YP Black (iOS)"/>
+                                            <constraints>
+                                                <constraint firstItem="Uer-y4-Pki" firstAttribute="top" secondItem="Oxt-1v-pht" secondAttribute="top" constant="4" id="4DZ-Zf-8Nn"/>
+                                                <constraint firstItem="7ov-OA-lIT" firstAttribute="top" secondItem="Uer-y4-Pki" secondAttribute="top" id="9ny-PC-Jnl"/>
+                                                <constraint firstItem="m7i-P9-Gwz" firstAttribute="leading" secondItem="Uer-y4-Pki" secondAttribute="leading" constant="8" id="JkP-P6-Xrb"/>
+                                                <constraint firstItem="Uer-y4-Pki" firstAttribute="leading" secondItem="Oxt-1v-pht" secondAttribute="leading" id="O7P-RK-Eau"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uer-y4-Pki" secondAttribute="trailing" id="SyF-HU-p7Z"/>
+                                                <constraint firstItem="7ov-OA-lIT" firstAttribute="trailing" secondItem="Uer-y4-Pki" secondAttribute="trailing" id="aDc-Be-WF0"/>
+                                                <constraint firstItem="Uer-y4-Pki" firstAttribute="bottom" secondItem="m7i-P9-Gwz" secondAttribute="bottom" constant="8" id="ezV-gI-F0b"/>
+                                                <constraint firstItem="7ov-OA-lIT" firstAttribute="leading" secondItem="Uer-y4-Pki" secondAttribute="leading" constant="317" id="iSS-BO-pJx"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uer-y4-Pki" secondAttribute="bottom" constant="4" id="r7k-7B-Lcf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -39,8 +87,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black (iOS)"/>
                         <constraints>
-                            <constraint firstItem="Jsm-rl-5hM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="D9e-MA-MVC"/>
-                            <constraint firstAttribute="trailing" secondItem="Jsm-rl-5hM" secondAttribute="trailing" id="jdS-2q-gGg"/>
+                            <constraint firstItem="Jsm-rl-5hM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="D9e-MA-MVC"/>
+                            <constraint firstAttribute="trailing" secondItem="Jsm-rl-5hM" secondAttribute="trailing" constant="16" id="jdS-2q-gGg"/>
                             <constraint firstAttribute="bottom" secondItem="Jsm-rl-5hM" secondAttribute="bottom" id="rjM-oe-XL1"/>
                             <constraint firstItem="Jsm-rl-5hM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="s5w-Y8-yzk"/>
                         </constraints>
@@ -52,8 +100,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="200" height="132"/>
+        <image name="Active" width="44" height="44"/>
         <namedColor name="YP Black (iOS)">
             <color red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YP White (Alpha 50) (iOS)">
+            <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YP Withe">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
