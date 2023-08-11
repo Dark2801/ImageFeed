@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fsK-5Y-j6T">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -99,65 +99,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-408" y="-637"/>
+            <point key="canvasLocation" x="599" y="-757"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile -->
         <scene sceneID="kfS-RE-Vzp">
             <objects>
-                <viewController id="fsK-5Y-j6T" sceneMemberID="viewController">
+                <viewController title="Profile " id="fsK-5Y-j6T" customClass="ProfileViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2r6-PC-CnP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfI-N8-Km3" userLabel="Avatar Image View">
-                                <rect key="frame" x="16" y="125" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="OfI-N8-Km3" userLabel="Avatar Image View">
+                                <rect key="frame" x="16" y="91" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="a0N-k4-dZD"/>
-                                    <constraint firstAttribute="width" constant="70" id="pot-b6-KQ1"/>
+                                    <constraint firstAttribute="height" constant="70" id="LHf-gO-KH8"/>
+                                    <constraint firstAttribute="width" constant="70" id="YzO-p8-TJZ"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-PI-PqS">
-                                <rect key="frame" x="142" y="364" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="YP Withe"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4v-nM-0Xc">
-                                <rect key="frame" x="201" y="470" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="YP Withe"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-rY-8NV">
-                                <rect key="frame" x="264" y="346" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="YP Withe"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-1g-MaP">
-                                <rect key="frame" x="72" y="506" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pr-1g-MaP" userLabel="Logout Button">
+                                <rect key="frame" x="333" y="114" width="44" height="44"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="Logout"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ekaterina_nov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4v-nM-0Xc" userLabel="Login Name Label">
+                                <rect key="frame" x="16" y="204.66666666666666" width="361" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="YP Gray (iOS)"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CF3-rY-8NV" userLabel="Description Label">
+                                <rect key="frame" x="16" y="228.33333333333334" width="361" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" name="YP Withe"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Екатерина Новикова" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKe-PI-PqS" userLabel="Name Label">
+                                <rect key="frame" x="16" y="169" width="361" height="27.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" name="YP Withe"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Hg-gK-N3F"/>
                         <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <constraints>
+                            <constraint firstItem="CF3-rY-8NV" firstAttribute="trailing" secondItem="UKe-PI-PqS" secondAttribute="trailing" id="8gV-be-pcT"/>
+                            <constraint firstItem="9Hg-gK-N3F" firstAttribute="trailing" secondItem="UKe-PI-PqS" secondAttribute="trailing" constant="16" id="C3d-gq-xjl"/>
+                            <constraint firstItem="9Hg-gK-N3F" firstAttribute="trailing" secondItem="5Pr-1g-MaP" secondAttribute="trailing" constant="16" id="FIV-kd-YVj"/>
+                            <constraint firstItem="CF3-rY-8NV" firstAttribute="top" secondItem="P4v-nM-0Xc" secondAttribute="bottom" constant="8" id="KtT-m0-3r0"/>
+                            <constraint firstItem="5Pr-1g-MaP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OfI-N8-Km3" secondAttribute="trailing" id="Le9-fz-Xqg"/>
+                            <constraint firstItem="UKe-PI-PqS" firstAttribute="top" secondItem="OfI-N8-Km3" secondAttribute="bottom" constant="8" id="P5E-Us-HwU"/>
+                            <constraint firstItem="OfI-N8-Km3" firstAttribute="leading" secondItem="9Hg-gK-N3F" secondAttribute="leading" constant="16" id="bTU-fw-hvd"/>
+                            <constraint firstItem="UKe-PI-PqS" firstAttribute="leading" secondItem="CF3-rY-8NV" secondAttribute="leading" id="eCE-zl-dUW"/>
+                            <constraint firstItem="5Pr-1g-MaP" firstAttribute="top" secondItem="9Hg-gK-N3F" secondAttribute="top" constant="55" id="mHB-np-V7x"/>
+                            <constraint firstItem="UKe-PI-PqS" firstAttribute="trailing" secondItem="P4v-nM-0Xc" secondAttribute="trailing" id="mfI-YD-d8U"/>
+                            <constraint firstItem="OfI-N8-Km3" firstAttribute="top" secondItem="9Hg-gK-N3F" secondAttribute="top" constant="32" id="nHT-gj-hfN"/>
+                            <constraint firstItem="UKe-PI-PqS" firstAttribute="leading" secondItem="OfI-N8-Km3" secondAttribute="leading" id="oKe-kg-6P5"/>
+                            <constraint firstItem="UKe-PI-PqS" firstAttribute="leading" secondItem="P4v-nM-0Xc" secondAttribute="leading" id="pNG-dp-1zl"/>
+                            <constraint firstItem="P4v-nM-0Xc" firstAttribute="top" secondItem="UKe-PI-PqS" secondAttribute="bottom" constant="8" id="zd6-hn-PmW"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="ceH-07-soy" userLabel="Navigation Item"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAw-dz-dra" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="353" y="-637"/>
+            <point key="canvasLocation" x="-344" y="-757"/>
         </scene>
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
         <image name="Active" width="44" height="44"/>
+        <image name="Avatar" width="70" height="70"/>
+        <image name="Logout" width="44" height="44"/>
         <namedColor name="YP Black (iOS)">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="YP Gray (iOS)">
+            <color red="0.68199998140335083" green="0.68599998950958252" blue="0.70599997043609619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="YP Withe">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
