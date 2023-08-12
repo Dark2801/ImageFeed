@@ -204,6 +204,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Npb-fg-2jT">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="YP Withe"/>
+                        <color key="barTintColor" name="YP Withe"/>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="YP Black (iOS)"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
