@@ -102,6 +102,35 @@
             </objects>
             <point key="canvasLocation" x="582.44274809160299" y="-1546.4788732394368"/>
         </scene>
+        <!--Single Image View Controller-->
+        <scene sceneID="Ggw-w5-fbv">
+            <objects>
+                <viewController id="6mq-pW-SRt" customClass="SingleImageViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9SC-xj-gYW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="18" translatesAutoresizingMaskIntoConstraints="NO" id="1fI-Yt-6cG">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ibt-cU-0v8"/>
+                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <constraints>
+                            <constraint firstItem="1fI-Yt-6cG" firstAttribute="top" secondItem="ibt-cU-0v8" secondAttribute="top" id="8Tj-9N-fhl"/>
+                            <constraint firstItem="ibt-cU-0v8" firstAttribute="trailing" secondItem="1fI-Yt-6cG" secondAttribute="trailing" id="Tp6-N0-YPA"/>
+                            <constraint firstItem="ibt-cU-0v8" firstAttribute="bottom" secondItem="1fI-Yt-6cG" secondAttribute="bottom" id="cab-i2-d3a"/>
+                            <constraint firstItem="1fI-Yt-6cG" firstAttribute="leading" secondItem="ibt-cU-0v8" secondAttribute="leading" id="iKJ-br-zng"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1fI-Yt-6cG" id="osV-db-kGM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fsp-r2-0mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="-1548"/>
+        </scene>
         <!--Profile -->
         <scene sceneID="kfS-RE-Vzp">
             <objects>
@@ -222,6 +251,7 @@
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
+        <image name="18" width="200" height="300"/>
         <image name="Active" width="44" height="44"/>
         <image name="Avatar" width="70" height="70"/>
         <image name="Logout" width="44" height="44"/>
