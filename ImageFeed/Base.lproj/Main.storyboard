@@ -78,7 +78,6 @@
                                             <outlet property="cellImage" destination="Uer-y4-Pki" id="uct-fI-Heb"/>
                                             <outlet property="dateLabel" destination="m7i-P9-Gwz" id="8hU-Uq-gUE"/>
                                             <outlet property="likeButton" destination="7ov-OA-lIT" id="hhC-Hl-I4d"/>
-                                            <segue destination="6mq-pW-SRt" kind="show" id="jGI-cH-n6l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -98,6 +97,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BgN-fn-vc4"/>
+                    <connections>
+                        <segue destination="6mq-pW-SRt" kind="show" identifier="ShowSingleImage" id="wec-cT-FyR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,7 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3sI-du-ff6"/>
                     <connections>
-                        <outlet property="imageView" destination="1fI-Yt-6cG" id="osV-db-kGM"/>
+                        <outlet property="imageView" destination="1fI-Yt-6cG" id="0xY-VZ-TWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsp-r2-0mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

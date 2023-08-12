@@ -6,9 +6,19 @@
 //
 
 import UIKit
+
 final class SingleImageViewController: UIViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    var image: UIImage! {
+        didSet {
+            guard isViewLoaded else { return }
+            imageView.image = image
+        }
     }
-    @IBOutlet var imageView: UIImageView!
+
+    @IBOutlet private var imageView: UIImageView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imageView.image = image
+    }
 }
