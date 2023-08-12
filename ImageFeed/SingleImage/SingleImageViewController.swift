@@ -7,5 +7,8 @@
 
 import UIKit
 final class SingleImageViewController: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     @IBOutlet var imageView: UIImageView!
 }
