@@ -12,7 +12,7 @@
         <!--ImageList-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="ImageList" id="BYZ-38-t0r" customClass="ImagesListViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ImageList" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ImagesListViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
                             <constraint firstItem="Jsm-rl-5hM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="s5w-Y8-yzk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="tab_bar_active" id="rsQ-gP-WpU"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_bar_active" id="rsQ-gP-WpU"/>
                     <navigationItem key="navigationItem" id="BgN-fn-vc4"/>
                     <connections>
                         <segue destination="6mq-pW-SRt" kind="presentation" identifier="ShowSingleImage" id="wec-cT-FyR"/>
@@ -249,13 +249,13 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="fsK-5Y-j6T" kind="relationship" relationship="viewControllers" id="7kh-OO-tIG"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="6in-jm-nr7"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="BKA-eD-9aR"/>
+                        <segue destination="fsK-5Y-j6T" kind="relationship" relationship="viewControllers" id="Aw7-U0-j5n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tff-Eb-dhj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1346" y="-1039"/>
+            <point key="canvasLocation" x="-1450" y="-1087"/>
         </scene>
     </scenes>
     <resources>
