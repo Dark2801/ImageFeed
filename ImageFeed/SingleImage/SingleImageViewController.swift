@@ -14,7 +14,7 @@ final class SingleImageViewController: UIViewController {
             imageView.image = image
         }
     }
-
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
     @IBAction private func didTapBackButton() {
         dismiss(animated: true, completion: nil)

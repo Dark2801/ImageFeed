@@ -96,7 +96,7 @@
                             <constraint firstItem="Jsm-rl-5hM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="s5w-Y8-yzk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="tab_bar_active" id="rsQ-gP-WpU"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="tab_bar_active" id="rsQ-gP-WpU"/>
                     <navigationItem key="navigationItem" id="BgN-fn-vc4"/>
                     <connections>
                         <segue destination="6mq-pW-SRt" kind="presentation" identifier="ShowSingleImage" id="wec-cT-FyR"/>
@@ -114,6 +114,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-Xm-058">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="t3q-PD-efF"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qaU-0C-Gu0"/>
+                            </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="18" translatesAutoresizingMaskIntoConstraints="NO" id="1fI-Yt-6cG">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
@@ -133,12 +138,20 @@
                         <viewLayoutGuide key="safeArea" id="ibt-cU-0v8"/>
                         <color key="backgroundColor" name="YP Black (iOS)"/>
                         <constraints>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="top" secondItem="1fI-Yt-6cG" secondAttribute="top" id="4Bn-Ts-nZe"/>
                             <constraint firstItem="DnF-CF-19W" firstAttribute="leading" secondItem="ibt-cU-0v8" secondAttribute="leading" constant="8" id="5g4-cd-rmU"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="bottom" secondItem="1fI-Yt-6cG" secondAttribute="bottom" id="7TW-B2-YVP"/>
                             <constraint firstItem="1fI-Yt-6cG" firstAttribute="top" secondItem="9SC-xj-gYW" secondAttribute="top" id="8Tj-9N-fhl"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="top" secondItem="9SC-xj-gYW" secondAttribute="top" id="8gc-rO-Ko6"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="leading" secondItem="ibt-cU-0v8" secondAttribute="leading" id="8mi-0V-nbe"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="bottom" secondItem="9SC-xj-gYW" secondAttribute="bottom" id="NU3-W3-FsI"/>
                             <constraint firstAttribute="trailing" secondItem="1fI-Yt-6cG" secondAttribute="trailing" id="Tp6-N0-YPA"/>
                             <constraint firstAttribute="bottom" secondItem="1fI-Yt-6cG" secondAttribute="bottom" id="cab-i2-d3a"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="leading" secondItem="1fI-Yt-6cG" secondAttribute="leading" id="gmc-4J-Bd1"/>
                             <constraint firstItem="1fI-Yt-6cG" firstAttribute="leading" secondItem="9SC-xj-gYW" secondAttribute="leading" id="iKJ-br-zng"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="trailing" secondItem="ibt-cU-0v8" secondAttribute="trailing" id="nuD-zm-i50"/>
                             <constraint firstItem="DnF-CF-19W" firstAttribute="top" secondItem="ibt-cU-0v8" secondAttribute="top" constant="8" id="vKX-jC-o5S"/>
+                            <constraint firstItem="O1F-Xm-058" firstAttribute="trailing" secondItem="1fI-Yt-6cG" secondAttribute="trailing" id="xHW-6T-bfZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3sI-du-ff6"/>
@@ -148,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsp-r2-0mQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="494" y="-1642"/>
+            <point key="canvasLocation" x="493.89312977099235" y="-1642.2535211267607"/>
         </scene>
         <!--Profile -->
         <scene sceneID="kfS-RE-Vzp">
@@ -224,13 +237,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="oUn-2B-7Ez">
             <objects>
-                <tabBarController id="nFB-0c-k3d" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="nFB-0c-k3d" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O5D-Xz-MBu">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="YP Withe"/>
                         <color key="selectedImageTintColor" name="YP Withe"/>
-                        <tabBarAppearance key="standardAppearance" backgroundImage="tab_bar_active">
+                        <tabBarAppearance key="standardAppearance">
                             <color key="backgroundColor" name="YP Black (iOS)"/>
                         </tabBarAppearance>
                     </tabBar>
