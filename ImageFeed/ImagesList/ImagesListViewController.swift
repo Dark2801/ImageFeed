@@ -17,10 +17,15 @@ override func viewDidLoad() {
     tableView?.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
 }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // проверка идентификатора сегвея
         if segue.identifier == ShowSingleImageSegueIdentifier {
+            // делаем преобразование типа для свойства segue.destination
             let viewController = segue.destination as! SingleImageViewController
+            // делаем преобразование типа для аргумента sender
             let indexPath = sender as! IndexPath
+            // получаем по индексу название картинки
             let image = UIImage(named: photosName[indexPath.row])
+            // передаем эту картинку в imageView внутри SingleImageViewController
             viewController.image = image
         } else {
             super.prepare(for: segue, sender: sender)

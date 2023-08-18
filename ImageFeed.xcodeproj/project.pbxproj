@@ -16,6 +16,7 @@
 		BD7B959E2A83520100ACFEB4 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */; };
 		BD7B95A22A85595D00ACFEB4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B95A12A85595D00ACFEB4 /* ProfileViewController.swift */; };
 		BD7B95A52A87D5B100ACFEB4 /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B95A42A87D5B100ACFEB4 /* SingleImageViewController.swift */; };
+		BDCB31A82A8FD8E300C197A8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		BD7B95A12A85595D00ACFEB4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BD7B95A42A87D5B100ACFEB4 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
+		BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		BD7B95882A82A67A00ACFEB4 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				BDCB31A62A8FD8B600C197A8 /* Helper */,
 				BD7B95A32A87D57E00ACFEB4 /* SingleImage */,
 				BD7B95A02A85592A00ACFEB4 /* Profile */,
 				BD7B959F2A8352B000ACFEB4 /* ImagesList */,
@@ -98,6 +101,14 @@
 				BD7B95A42A87D5B100ACFEB4 /* SingleImageViewController.swift */,
 			);
 			path = SingleImage;
+			sourceTree = "<group>";
+		};
+		BDCB31A62A8FD8B600C197A8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				BD7B959E2A83520100ACFEB4 /* ImagesListCell.swift in Sources */,
 				BD7B95A22A85595D00ACFEB4 /* ProfileViewController.swift in Sources */,
 				BD7B958A2A82A67A00ACFEB4 /* AppDelegate.swift in Sources */,
+				BDCB31A82A8FD8E300C197A8 /* UIColor+Extensions.swift in Sources */,
 				BD7B95A52A87D5B100ACFEB4 /* SingleImageViewController.swift in Sources */,
 				BD7B958C2A82A67A00ACFEB4 /* SceneDelegate.swift in Sources */,
 			);
