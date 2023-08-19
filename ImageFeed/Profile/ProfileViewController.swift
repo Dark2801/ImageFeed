@@ -108,7 +108,7 @@ final  class ProfileViewController: UIViewController {
     }
 
     func makeProfileExitButton() {
-      let profileExitButtonImage = UIImage(named: "ipad.and.arrow.forward") ?? UIImage()
+      let profileExitButtonImage = UIImage(named: "Logout") ?? UIImage()
 
       exitButton = UIButton.systemButton(
         with: profileExitButtonImage,
