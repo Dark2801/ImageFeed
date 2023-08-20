@@ -8,7 +8,9 @@
 import UIKit
 
 final  class ProfileViewController: UIViewController {
-  // MARK: - Private properties
+  
+ // MARK: - Private properties
+  
   private var profilePhotoImage = UIImageView()
   private var profileFullNameLabel = UILabel()
   private var profileLoginNameLabel = UILabel()
@@ -16,6 +18,7 @@ final  class ProfileViewController: UIViewController {
   private var exitButton = UIButton()
 
   // MARK: - Mock data
+  
   private let profilePhoto = "Avatar"
   private let profileUserName = "Екатерина Новикова"
   private let profileLoginName = "@ekaterina_nov"

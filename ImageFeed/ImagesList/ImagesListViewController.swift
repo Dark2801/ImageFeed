@@ -8,28 +8,23 @@
 import UIKit
 
 final class ImagesListViewController: UIViewController {
-    private let ShowSingleImageSegueIdentifier = "ShowSingleImage"
+    private let showSingleImageSegueIdentifier = "ShowSingleImage"
     @IBOutlet private var tableView: UITableView!
-
-    private let photosName: [String] = Array(0..<20).map{ "\($0)" }
-override func viewDidLoad() {
+    
+    private let photosName: [String] = Array(0..<21).map{ "\($0)" }
+    override func viewDidLoad() {
         super.viewDidLoad()
-    tableView?.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-}
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // проверка идентификатора сегвея
-        if segue.identifier == ShowSingleImageSegueIdentifier {
-            // делаем преобразование типа для свойства segue.destination
-            let viewController = segue.destination as! SingleImageViewController
-            // делаем преобразование типа для аргумента sender
-            let indexPath = sender as! IndexPath
-            // получаем по индексу название картинки
-            let image = UIImage(named: photosName[indexPath.row])
-            // передаем эту картинку в imageView внутри SingleImageViewController
-            viewController.image = image
-        } else {
-            super.prepare(for: segue, sender: sender)
-        }
+        tableView?.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {if segue.identifier == showSingleImageSegueIdentifier {
+        let viewController = segue.destination as! SingleImageViewController
+        let indexPath = sender as! IndexPath
+        let image = UIImage(named: photosName[indexPath.row])
+        
+        viewController.image = image
+    } else {
+        super.prepare(for: segue, sender: sender)
+    }
     }
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -43,16 +38,16 @@ extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photosName.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentiFilter, for: indexPath)
-
+        
         guard let imageListCell = cell as? ImagesListCell else {
             return UITableViewCell()
         }
-
+        
         configCell(for: imageListCell, with: indexPath)
-
+        
         return imageListCell
     }
 }
@@ -62,10 +57,10 @@ extension ImagesListViewController {
         guard let image = UIImage(named: photosName[indexPath.row]) else {
             return
         }
-
+        
         cell.cellImage.image = image
         cell.dateLabel.text = dateFormatter.string(from: Date())
-
+        
         let isLiked = indexPath.row % 2 == 0
         let likeImage = isLiked ? UIImage(named: "Active") : UIImage(named: "NoActive")
         cell.likeButton.setImage(likeImage, for: .normal)
