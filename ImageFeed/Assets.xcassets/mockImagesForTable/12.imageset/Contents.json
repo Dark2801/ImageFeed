@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "12.png",
+      "filename" : "sourav-mishra-P6i2v-l1aNg-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best"
   }
 }

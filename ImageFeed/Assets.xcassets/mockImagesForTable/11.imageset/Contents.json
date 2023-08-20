@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "11.png",
+      "filename" : "mohammadreza-alidoost-0rUp9vgyEYo-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best"
   }
 }

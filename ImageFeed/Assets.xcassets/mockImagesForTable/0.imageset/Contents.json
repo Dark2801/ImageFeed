@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "0.png",
+      "filename" : "masahiro-miyagi-0XqbG-2Z5GU-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +17,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best"
   }
 }
