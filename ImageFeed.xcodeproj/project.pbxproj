@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1C4C922A9A1D4100A2CBA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4C912A9A1D4100A2CBA9 /* Constants.swift */; };
+		BD1C4C952A9A480D00A2CBA9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4C942A9A480D00A2CBA9 /* AuthViewController.swift */; };
 		BD7B958A2A82A67A00ACFEB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B95892A82A67A00ACFEB4 /* AppDelegate.swift */; };
 		BD7B958C2A82A67A00ACFEB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B958B2A82A67A00ACFEB4 /* SceneDelegate.swift */; };
 		BD7B958E2A82A67A00ACFEB4 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD1C4C912A9A1D4100A2CBA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD1C4C942A9A480D00A2CBA9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BD7B95862A82A67A00ACFEB4 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7B95892A82A67A00ACFEB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD7B958B2A82A67A00ACFEB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD1C4C932A9A47E400A2CBA9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				BD1C4C942A9A480D00A2CBA9 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		BD7B957D2A82A67A00ACFEB4 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +76,7 @@
 		BD7B95882A82A67A00ACFEB4 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				BD1C4C932A9A47E400A2CBA9 /* Auth */,
 				BDCB31A62A8FD8B600C197A8 /* Helper */,
 				BD7B95A32A87D57E00ACFEB4 /* SingleImage */,
 				BD7B95A02A85592A00ACFEB4 /* Profile */,
@@ -83,6 +96,7 @@
 			children = (
 				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
 				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
+				BD1C4C912A9A1D4100A2CBA9 /* Constants.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -121,6 +135,7 @@
 				BD7B95822A82A67A00ACFEB4 /* Sources */,
 				BD7B95832A82A67A00ACFEB4 /* Frameworks */,
 				BD7B95842A82A67A00ACFEB4 /* Resources */,
+				BD4CAF5C2A9682B500E1EB4A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -177,6 +192,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BD4CAF5C2A9682B500E1EB4A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD7B95822A82A67A00ACFEB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -189,6 +224,8 @@
 				BDCB31A82A8FD8E300C197A8 /* UIColor+Extensions.swift in Sources */,
 				BD7B95A52A87D5B100ACFEB4 /* SingleImageViewController.swift in Sources */,
 				BD7B958C2A82A67A00ACFEB4 /* SceneDelegate.swift in Sources */,
+				BD1C4C952A9A480D00A2CBA9 /* AuthViewController.swift in Sources */,
+				BD1C4C922A9A1D4100A2CBA9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
