@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewViewController: UIViewController {
+final class WebViewViewController: UIViewController {
+    @IBOutlet weak var webView: WKWebView!
+    @IBAction private func didTapBackButton(_ sender: Any?) {}
+    
 }
