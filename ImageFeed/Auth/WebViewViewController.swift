@@ -9,10 +9,9 @@ import UIKit
 import WebKit
 
 fileprivate let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
-
-
 final class WebViewViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet private var progressView: UIProgressView!
     @IBAction private func didTapBackButton(_ sender: Any?) {
         delegate?.webViewViewControllerDidCancel(self)
     }
@@ -20,7 +19,6 @@ final class WebViewViewController: UIViewController {
     override func viewDidLoad() {
         webView.navigationDelegate = self
         super.viewDidLoad()
-      
         var urlComponents = URLComponents(string: unsplashAuthorizeURLString)!
         urlComponents.queryItems = [
         URLQueryItem(name: "client_id", value: accessKey),
@@ -31,6 +29,31 @@ final class WebViewViewController: UIViewController {
         let url = urlComponents.url!
         let request = URLRequest(url: url)
         webView.load(request)
+        updateProgress()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        webView.addObserver(
+            self,
+            forKeyPath: #keyPath(WKWebView.estimatedProgress),
+            options: .new,
+            context: nil)
+        updateProgress()
+    }
+    
+    override func observeValue(
+        forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?
+    ){
+        if keyPath == #keyPath(WKWebView.estimatedProgress){
+            updateProgress()
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+    
+    private func updateProgress() {
+        progressView.progress = Float(webView.estimatedProgress)
+        progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
     }
 }
 extension WebViewViewController: WKNavigationDelegate {
@@ -47,8 +70,8 @@ extension WebViewViewController: WKNavigationDelegate {
         }
     }
 
-    private func code(from navigationAction: WKNavigationAction) -> String? {
-        if
+private func code(from navigationAction: WKNavigationAction) -> String? {
+ if
             let url = navigationAction.request.url,
             let urlComponents = URLComponents(string: url.absoluteString),
             urlComponents.path == "/oauth/authorize/native",
