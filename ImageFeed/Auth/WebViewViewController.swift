@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-fileprivate let unsplashAuthorizeURLString = "https://unsplash.com/oath/authorize"
+fileprivate let unsplashAuthorizeURLString = "https://unsplash.com/oauth/authorize"
 
 
 final class WebViewViewController: UIViewController {
