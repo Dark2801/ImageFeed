@@ -63,7 +63,7 @@ struct OAuthTokenResponseBody: Decodable {
 // MARK: - URLSession
 
 extension OAuth2Service {
-    private func object(for request: URLRequest, completion: @escaping(Result<OAuthTokenResponseBody, Error>) -> Void) -> URLSessionTask {
+private func object(for request: URLRequest, completion: @escaping(Result<OAuthTokenResponseBody, Error>) -> Void) -> URLSessionTask {
         return urlSession.data(for: request, completion: {(result: Result<Data, Error>) in
             switch result {
             case .success(let data):
@@ -89,9 +89,6 @@ extension URLRequest {
         return request
     }
 }
-
-
-
 // MARK: - Network Connection
 
 enum NetworkError: Error {
@@ -102,13 +99,11 @@ enum NetworkError: Error {
 
 extension URLSession {
     func data(for request: URLRequest, completion: @escaping(Result<Data, Error>) -> Void) -> URLSessionTask {
-        
         let fulfillCompletion: (Result<Data, Error>) -> Void = { result in
             DispatchQueue.main.async {
                 completion(result)
             }
         }
-        
         let task = dataTask(with: request) { data, response, error in
             if let data = data,
                let response = response,
