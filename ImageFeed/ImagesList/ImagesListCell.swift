@@ -16,7 +16,7 @@ extension ImagesListCell {
     func configure(image: UIImage?, date: String, isLiked: Bool) {
         cellImage.image = image
         dateLabel.text = date
-let likeImage = isLiked ? UIImage(named: "Active") : UIImage(named: "No Active")
+let likeImage = isLiked ? UIImage(named: "Active") : UIImage(named: "No_Active")
         likeButton.setImage(likeImage, for: .normal)
     }
 }
