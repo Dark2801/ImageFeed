@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "aaron-burden-yFnX8DaC3UM-unsplash.jpg",
+      "filename" : "Backward.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Backward 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Backward 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,8 +19,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "compression-type" : "lossy"
   }
 }
