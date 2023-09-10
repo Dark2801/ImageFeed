@@ -38,13 +38,13 @@ final class OAuth2Service {
 private func authTokenRequest(code: String) -> URLRequest {
     URLRequest.makeHTTPRequest(
         path: "/oauth/token"
-        + "?client_id=\(accessKey)"
-        + "&&client_secret=\(secretKey)"
-        + "&&redirect_uri=\(redirectURL)"
+        + "?client_id=\(APIConstants.accessKey)"
+        + "&&client_secret=\(APIConstants.secretKey)"
+        + "&&redirect_uri=\(APIConstants.redirectURL)"
         + "&&code=\(code)"
         + "&&grant_type=authorization_code",
         httpMethod: "POST",
-        baseURL: URL(string: "\(baseURL)")!
+        baseURL: URL(string: "\(APIConstants.baseURL)")!
     )}
 
 // MARK: - Decoding
@@ -83,7 +83,7 @@ private func object(for request: URLRequest, completion: @escaping(Result<OAuthT
 // MARK: - HTTP Request
 
 extension URLRequest {
-    static func makeHTTPRequest(path: String, httpMethod: String, baseURL: URL = defaultBaseURL) -> URLRequest {
+    static func makeHTTPRequest(path: String, httpMethod: String, baseURL: URL = APIConstants.defaultBaseURL) -> URLRequest {
         var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
         request.httpMethod = httpMethod
         return request

@@ -79,11 +79,11 @@ extension WebViewViewController: WKNavigationDelegate {
 
 private extension WebViewViewController {
     func loadWebView() {
-        var components = URLComponents(string: authorizeURLString)
-        components?.queryItems = [URLQueryItem(name: "client_id", value: accessKey),
-                                  URLQueryItem(name: "redirect_uri", value: redirectURL),
-                                  URLQueryItem(name: "response_type", value: code),
-                                  URLQueryItem(name: "scope", value: accessScope)]
+        var components = URLComponents(string: APIConstants.authorizeURLString)
+        components?.queryItems = [URLQueryItem(name: "client_id", value: APIConstants.accessKey),
+                                  URLQueryItem(name: "redirect_uri", value:APIConstants.redirectURL),
+                                  URLQueryItem(name: "response_type", value: APIConstants.code),
+                                  URLQueryItem(name: "scope", value: APIConstants.accessScope)]
         if let url = components?.url {
             let request = URLRequest(url: url)
             webView.load(request)
@@ -93,8 +93,8 @@ private extension WebViewViewController {
     func fetchCode(from url: URL?) -> String? {
         if let url = url,
            let components = URLComponents(string: url.absoluteString),
-           components.path == authorizationPath,
-           let codeItem = components.queryItems?.first(where: { $0.name == code }) {
+           components.path == APIConstants.authorizationPath,
+           let codeItem = components.queryItems?.first(where: { $0.name == APIConstants.code }) {
             return codeItem.value
         } else {
             return nil
