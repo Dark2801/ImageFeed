@@ -4,16 +4,15 @@
 //
 //  Created by Андрей Мерзликин on 10.08.2023.
 //
-
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     private let storageToken = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
     private let profileImage = UIImage(named: "Avatar")
     private var profileImageServiceObserver: NSObjectProtocol?
-    
-    private lazy var imageView : UIImageView = {
+private lazy var imageView : UIImageView = {
         let imageView = UIImageView(image: profileImage)
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
@@ -21,8 +20,7 @@ class ProfileViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    private lazy var nameLabel : UILabel = {
+private lazy var nameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Екатерина Новикова"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 23)
@@ -30,8 +28,7 @@ class ProfileViewController: UIViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         return nameLabel
     }()
-    
-    private lazy var nicknameLabel : UILabel = {
+private lazy var nicknameLabel : UILabel = {
         let nicknameLabel = UILabel()
         nicknameLabel.text = "@ekaterina_nov"
         nicknameLabel.font = UIFont.systemFont(ofSize: 13)
@@ -39,8 +36,7 @@ class ProfileViewController: UIViewController {
         nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
         return nicknameLabel
     }()
-    
-    private lazy var textLabel : UILabel = {
+private lazy var textLabel : UILabel = {
         let textLabel = UILabel()
         textLabel.text = "Hello, world!"
         textLabel.font = UIFont.systemFont(ofSize: 13)
@@ -48,8 +44,7 @@ class ProfileViewController: UIViewController {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()
-    
-    private lazy var button : UIButton = {
+private lazy var button : UIButton = {
         let button = UIButton.systemButton(
             with: UIImage(systemName: "ipad.and.arrow.forward")!,
             target: self,
@@ -58,9 +53,7 @@ class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
         configureConstraints()
@@ -68,16 +61,14 @@ class ProfileViewController: UIViewController {
         updateAvatar()
         observeAvatarChanges()
     }
-    
-    private func configureViews() {
+private func configureViews() {
         view.addSubview(imageView)
         view.addSubview(nameLabel)
         view.addSubview(nicknameLabel)
         view.addSubview(textLabel)
         view.addSubview(button)
     }
-    
-    private func configureConstraints() {
+private func configureConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -92,17 +83,13 @@ class ProfileViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             button.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
         ])
-        
-    }
+}
     @objc
     private func didTapButton() {
-        
-    }
-    
+}
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
 }
 // MARK: - Update Profile data
 extension ProfileViewController {
@@ -127,13 +114,18 @@ extension ProfileViewController {
                 self.updateAvatar()
             }
     }
-    
-    private func updateAvatar() {
+private func updateAvatar() {
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
         else { return }
-       
-       
+        let processor = RoundCornerImageProcessor(cornerRadius: imageView.frame.width)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: url,
+                              placeholder: UIImage(named: "person.crop.circle.fill.png"),
+                              options: [.processor(processor),.cacheSerializer(FormatIndicatedCacheSerializer.png)])
+        let cache = ImageCache.default
+        cache.clearDiskCache()
+        cache.clearMemoryCache()
     }
 }
