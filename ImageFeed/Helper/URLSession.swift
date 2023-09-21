@@ -19,7 +19,7 @@ extension URLSession {
                     return
                 }
                 if let response = response as? HTTPURLResponse,
-                   !(200...299).contains(response.statusCode) {
+                   !(200...300).contains(response.statusCode) {
                     completion(.failure(NetworkError.codeError))
                     return
                 }

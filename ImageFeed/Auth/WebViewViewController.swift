@@ -60,7 +60,7 @@ private extension WebViewViewController {
     func loadWebView() {
         var components = URLComponents(string: APIConstants.authorizeURLString)
         components?.queryItems = [URLQueryItem(name: "client_id", value: APIConstants.accessKey),
-                                  URLQueryItem(name: "redirect_url", value: APIConstants.redirectURL),
+                                  URLQueryItem(name: "redirect_uri", value: APIConstants.redirectURI),
                                   URLQueryItem(name: "response_type", value: APIConstants.code),
                                   URLQueryItem(name: "scope", value: APIConstants.accessScope)]
         if let url = components?.url {

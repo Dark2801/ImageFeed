@@ -40,7 +40,7 @@ private func authTokenRequest(code: String) -> URLRequest {
         path: "/oauth/token"
         + "?client_id=\(APIConstants.accessKey)"
         + "&&client_secret=\(APIConstants.secretKey)"
-        + "&&redirect_uri=\(APIConstants.redirectURL)"
+        + "&&redirect_uri=\(APIConstants.redirectURI)"
         + "&&code=\(code)"
         + "&&grant_type=authorization_code",
         httpMethod: "POST",

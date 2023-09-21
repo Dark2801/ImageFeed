@@ -5,7 +5,7 @@
 //  Created by Андрей Мерзликин on 31.08.2023.
 //
 import UIKit
-
+import ProgressHUD
 final class SplashViewController: UIViewController {
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
@@ -18,12 +18,7 @@ final class SplashViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-      super.viewDidLoad()
 
-      UIBlockingProgressHUD.setup()
-    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -78,6 +73,8 @@ extension SplashViewController: AuthViewControllerDelegate {
         dismiss(animated: true) { [weak self] in
             guard let self = self else { return }
             self.fetchOAuthToken(code)
+            
+            
         }
     }
     
@@ -88,13 +85,12 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .success(let token):
                 self.oauth2TokenStorage.token = token
                 self.fetchProfile(token: token)
-               
-            case .failure (let error):
-                
-                self.showAlert(with: error)
+               case .failure (let error):
+               self.showAlert(with: error)
                 break
             }
-           
+            UIBlockingProgressHUD.dismiss()
+            
         }
     }
     
@@ -113,6 +109,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 break
             }
             UIBlockingProgressHUD.dismiss()
+            
         }
     }
     
