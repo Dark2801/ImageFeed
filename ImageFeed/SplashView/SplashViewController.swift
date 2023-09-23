@@ -21,7 +21,7 @@ final class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         guard UIBlockingProgressHUD.isShowing == false else { return }
         if let token = OAuth2TokenStorage.shared.token {
             fetchProfile(token: token)
@@ -31,7 +31,7 @@ final class SplashViewController: UIViewController {
                 assertionFailure("Failed to show Authentication Screen")
                 return
             }
-
+            
             authViewController.delegate = self
             authViewController.modalPresentationStyle = .fullScreen
             present(authViewController, animated: true)
@@ -88,8 +88,8 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .success(let token):
                 self.oauth2TokenStorage.token = token
                 self.fetchProfile(token: token)
-               case .failure (let error):
-               self.showAlert(with: error)
+            case .failure (let error):
+                self.showAlert(with: error)
                 break
             }
             UIBlockingProgressHUD.dismiss()
