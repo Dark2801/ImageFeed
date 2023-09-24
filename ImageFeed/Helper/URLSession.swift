@@ -12,6 +12,7 @@ private enum NetworkError: Error {
 
 extension URLSession {
     func objectTask<T: Decodable>(for request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) -> URLSessionTask {
+        let decoder = JSONDecoder()
         let task = dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
