@@ -46,7 +46,7 @@ final class SingleImageViewController : UIViewController {
         let heigthY = (newContentSize.height - visibleRectSize.height) / 2
         scrollView.setContentOffset(CGPoint(x: widthX, y: heigthY), animated: false)
     }
-    }
+}
 extension SingleImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         imageView
