@@ -229,7 +229,7 @@
                                     <color key="titleColor" name="YP Black (iOS)"/>
                                 </state>
                                 <buttonConfiguration key="configuration" style="plain" title="Войти">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="black" pointSize="17"/>
                                     <color key="baseForegroundColor" name="YP Black (iOS)"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>

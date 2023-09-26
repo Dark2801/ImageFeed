@@ -30,6 +30,7 @@
 		BD95E1FF2ABB74FD00D00AEB /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD95E1FE2ABB74FD00D00AEB /* UIBlockingProgressHUD.swift */; };
 		BDA35CCC2A9C9B770022E781 /* OAuth2Srevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA35CCB2A9C9B770022E781 /* OAuth2Srevice.swift */; };
 		BDA35CCE2A9C9BB10022E781 /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA35CCD2A9C9BB10022E781 /* OAuth2TokenStorage.swift */; };
+		BDA59A032AC2050D006C6A2C /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA59A022AC2050D006C6A2C /* ImagesListService.swift */; };
 		BDCB31A82A8FD8E300C197A8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		BD95E1FE2ABB74FD00D00AEB /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		BDA35CCB2A9C9B770022E781 /* OAuth2Srevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Srevice.swift; sourceTree = "<group>"; };
 		BDA35CCD2A9C9BB10022E781 /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
+		BDA59A022AC2050D006C6A2C /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
 		BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			children = (
 				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
 				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
+				BDA59A022AC2050D006C6A2C /* ImagesListService.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				BD567BB72AAE38B00029A763 /* URLSession.swift in Sources */,
 				BD7B95A52A87D5B100ACFEB4 /* SingleImageViewController.swift in Sources */,
 				BD7B958C2A82A67A00ACFEB4 /* SceneDelegate.swift in Sources */,
+				BDA59A032AC2050D006C6A2C /* ImagesListService.swift in Sources */,
 				BD1C4C952A9A480D00A2CBA9 /* AuthViewController.swift in Sources */,
 				BD1C4C922A9A1D4100A2CBA9 /* Constants.swift in Sources */,
 				BD567BB12AA064590029A763 /* SplashViewController.swift in Sources */,

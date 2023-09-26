@@ -5,10 +5,11 @@
 //  Created by Андрей Мерзликин on 08.08.2023.
 //
 import UIKit
+import Kingfisher
 
 final class ImagesListViewController: UIViewController {
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
-    
+    private let imagesListService = ImagesListService.shared
     @IBOutlet private var tableView: UITableView?
     
     private let photosName: [String] = Array(0..<21).map{ "\($0)" }
@@ -23,7 +24,7 @@ final class ImagesListViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,12 @@ extension ImagesListViewController: UITableViewDelegate {
         let cellHeight = image.size.height * scale + imageInsets.top + imageInsets.bottom
         return cellHeight
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == imagesListService.photos.count {
+            imagesListService.fetchPhotosNextPage()
+        }
+    }
+    
 }
 
 extension ImagesListViewController: UITableViewDataSource {
