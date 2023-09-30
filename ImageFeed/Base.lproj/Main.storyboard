@@ -50,6 +50,9 @@
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Like"/>
+                                                    <connections>
+                                                        <action selector="likeButtonTapped:" destination="EVp-YT-abB" eventType="touchUpInside" id="TLk-zj-V2L"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09 августа 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7i-P9-Gwz" userLabel="Data Label">
                                                     <rect key="frame" x="24" y="193.33333333333334" width="110" height="15.666666666666657"/>
@@ -100,6 +103,7 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_bar_active" id="7UU-iD-u4Q"/>
                     <navigationItem key="navigationItem" id="BgN-fn-vc4"/>
                     <connections>
+                        <outlet property="tableView" destination="Jsm-rl-5hM" id="jhs-bo-mhZ"/>
                         <segue destination="Mbd-93-4bp" kind="presentation" identifier="ShowSingleImage" id="3iR-yc-dNb"/>
                     </connections>
                 </viewController>
