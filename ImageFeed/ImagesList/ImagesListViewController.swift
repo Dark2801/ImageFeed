@@ -14,10 +14,11 @@ final class ImagesListViewController: UIViewController {
     var photos: [Photo] = []
 
     private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        return formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        return dateFormatter
     }()
     
     @IBOutlet private var tableView: UITableView!

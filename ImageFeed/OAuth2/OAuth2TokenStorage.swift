@@ -10,11 +10,11 @@ import SwiftKeychainWrapper
 final class OAuth2TokenStorage {
     static let shared = OAuth2TokenStorage()
     private let keychainStorage = KeychainWrapper.standard
-    
+
     private enum Keys: String {
         case token
     }
-    
+
     var token: String? {
         get {
             keychainStorage.string(forKey: "bearerToken")
@@ -26,5 +26,9 @@ final class OAuth2TokenStorage {
                 keychainStorage.removeObject(forKey: "bearerToken")
             }
         }
+    }
+    
+    func clearToken() {
+        keychainStorage.removeAllKeys()
     }
 }
