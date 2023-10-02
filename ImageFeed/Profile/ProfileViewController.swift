@@ -10,7 +10,7 @@ import Kingfisher
 class ProfileViewController: UIViewController {
     private let storageToken = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
-    private let profileImage = UIImage(named: "Avatar")
+    private let profileImage = UIImage(named: "person.crop.circle.fill")
     private var profileImageServiceObserver: NSObjectProtocol?
     
     private lazy var imageView : UIImageView = {
