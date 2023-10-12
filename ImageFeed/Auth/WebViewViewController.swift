@@ -23,12 +23,12 @@ final class WebViewViewController: UIViewController {
         webView.navigationDelegate = self
         loadWebView()
         estimatedProgressObservation = webView.observe(
-            \.estimatedProgress,
-             options: [],
-             changeHandler: { [weak self] _, _ in
-                 guard let self = self else { return }
-                 self.updateProgress()
-             })
+                     \.estimatedProgress,
+                      options: [],
+                      changeHandler: { [weak self] _, _ in
+                          guard let self = self else { return }
+                          self.updateProgress()
+                      })
     }
     
     private func updateProgress() {
@@ -54,6 +54,15 @@ extension WebViewViewController: WKNavigationDelegate {
             decisionHandler(.allow)
         }
     }
+    
+    static func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
+        }
+    }
 }
 
 private extension WebViewViewController {
@@ -68,7 +77,7 @@ private extension WebViewViewController {
             webView.load(request)
         }
     }
-    
+
     func fetchCode(from navigationAction: WKNavigationAction) -> String? {
         if let url = navigationAction.request.url,
            let components = URLComponents(string: url.absoluteString),

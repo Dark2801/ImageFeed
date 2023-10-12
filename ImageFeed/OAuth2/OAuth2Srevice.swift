@@ -52,7 +52,7 @@ private func authTokenRequest(code: String) -> URLRequest {
 struct OAuthTokenResponseBody: Decodable {
     let accessToken, tokenType, scope: String
     let createdAt: Date
-    
+   
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
         case tokenType = "token_type"
@@ -74,5 +74,6 @@ extension URLRequest {
 // MARK: - Network Connection
 
 private enum NetworkError: Error {
-    case codeError
-}
+        case codeError
+    }
+

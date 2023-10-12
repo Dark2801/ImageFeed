@@ -10,8 +10,9 @@ import Kingfisher
 class ProfileViewController: UIViewController {
     private let storageToken = OAuth2TokenStorage()
     private let profileService = ProfileService.shared
-    private let profileImage = UIImage(named: "Avatar")
+    private let profileImage = UIImage(named: "person.crop.circle.fill")
     private var profileImageServiceObserver: NSObjectProtocol?
+    
     private lazy var imageView : UIImageView = {
         let imageView = UIImageView(image: profileImage)
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
@@ -20,6 +21,7 @@ class ProfileViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     private lazy var nameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Екатерина Новикова"
@@ -28,6 +30,7 @@ class ProfileViewController: UIViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         return nameLabel
     }()
+    
     private lazy var nicknameLabel : UILabel = {
         let nicknameLabel = UILabel()
         nicknameLabel.text = "@ekaterina_nov"
@@ -36,6 +39,7 @@ class ProfileViewController: UIViewController {
         nicknameLabel.translatesAutoresizingMaskIntoConstraints = false
         return nicknameLabel
     }()
+    
     private lazy var textLabel : UILabel = {
         let textLabel = UILabel()
         textLabel.text = "Hello, world!"
@@ -44,6 +48,7 @@ class ProfileViewController: UIViewController {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         return textLabel
     }()
+    
     private lazy var button : UIButton = {
         let button = UIButton.systemButton(
             with: UIImage(systemName: "ipad.and.arrow.forward")!,
@@ -53,6 +58,8 @@ class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
@@ -61,6 +68,7 @@ class ProfileViewController: UIViewController {
         updateAvatar()
         observeAvatarChanges()
     }
+    
     private func configureViews() {
         view.addSubview(imageView)
         view.addSubview(nameLabel)
@@ -68,6 +76,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(textLabel)
         view.addSubview(button)
     }
+    
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
@@ -83,12 +92,45 @@ class ProfileViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             button.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
         ])
+        
     }
     @objc
     private func didTapButton() {
+        showLogoutAlert()
     }
+    
+    private func logout() {
+        storageToken.clearToken()
+        WebViewViewController.clean()
+        cleanServicesData()
+        tabBarController?.dismiss(animated: true)
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("Invalid Configuration") }
+        window.rootViewController = SplashViewController()
+    }
+    
+    private func showLogoutAlert() {
+        let alert = UIAlertController(
+            title: "Пока, пока!",
+            message: "Уверены, что хотите выйти?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
+            guard let self = self else { return }
+            self.logout()
+        }))
+        alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    private func cleanServicesData() {
+        ImagesListService.shared.clean()
+        ProfileService.shared.clean()
+        ProfileImageService.shared.clean()
     }
 }
 // MARK: - Update Profile data
@@ -114,7 +156,9 @@ extension ProfileViewController {
                 self.updateAvatar()
             }
     }
+    
     private func updateAvatar() {
+        view.backgroundColor = .ypBlack
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
