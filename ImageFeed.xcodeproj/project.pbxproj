@@ -35,6 +35,7 @@
 		BDAE65FB2AD9AD9600F27615 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAE65FA2AD9AD9600F27615 /* AuthHelper.swift */; };
 		BDAE65FD2AD9ADCD00F27615 /* AuthConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAE65FC2AD9ADCD00F27615 /* AuthConfiguration.swift */; };
 		BDAE65FF2AD9B8E300F27615 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAE65FE2AD9B8E300F27615 /* ProfilePresenter.swift */; };
+		BDAE66012ADB221300F27615 /* ImagesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAE66002ADB221300F27615 /* ImagesListPresenter.swift */; };
 		BDCB31A82A8FD8E300C197A8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */; };
 		BDCE4D4B2AD86E8A0079DCF7 /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE4D4A2AD86E8A0079DCF7 /* WebViewPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		BDAE65FA2AD9AD9600F27615 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		BDAE65FC2AD9ADCD00F27615 /* AuthConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfiguration.swift; sourceTree = "<group>"; };
 		BDAE65FE2AD9B8E300F27615 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		BDAE66002ADB221300F27615 /* ImagesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListPresenter.swift; sourceTree = "<group>"; };
 		BDCB31A72A8FD8E300C197A8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		BDCE4D4A2AD86E8A0079DCF7 /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +194,7 @@
 				BD7B958D2A82A67A00ACFEB4 /* ImagesListViewController.swift */,
 				BD7B959D2A83520100ACFEB4 /* ImagesListCell.swift */,
 				BDA59A022AC2050D006C6A2C /* ImagesListService.swift */,
+				BDAE66002ADB221300F27615 /* ImagesListPresenter.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BD7B959E2A83520100ACFEB4 /* ImagesListCell.swift in Sources */,
 				BDAE65FB2AD9AD9600F27615 /* AuthHelper.swift in Sources */,
 				BD7B95A22A85595D00ACFEB4 /* ProfileViewController.swift in Sources */,
+				BDAE66012ADB221300F27615 /* ImagesListPresenter.swift in Sources */,
 				BD7B958A2A82A67A00ACFEB4 /* AppDelegate.swift in Sources */,
 				BD567BBD2AAF91410029A763 /* ProfileImageService.swift in Sources */,
 				BDA35CCC2A9C9B770022E781 /* OAuth2Srevice.swift in Sources */,
