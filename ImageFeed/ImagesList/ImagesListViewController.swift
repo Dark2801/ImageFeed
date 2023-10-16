@@ -14,9 +14,9 @@ protocol ImagesListViewControllerProtocol: AnyObject {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
 }
 
-final class ImagesListViewController: UIViewController {
+final class ImagesListViewController: UIViewController, ImagesListViewControllerProtocol {
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
-    private var imagesListServiceObserver: NSObjectProtocol?
+    
     private let imagesListService = ImagesListService.shared
     var photos: [Photo] = []
 
@@ -27,7 +27,9 @@ final class ImagesListViewController: UIViewController {
         
         return dateFormatter
     }()
-    
+    lazy var presenter: ImagesListPresenterProtocol? = {
+        return ImagesListPresenter()
+    } ()
     @IBOutlet private var tableView: UITableView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -37,14 +39,8 @@ final class ImagesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        imagesListServiceObserver = NotificationCenter.default.addObserver(
-            forName: ImagesListService.didChangeNotification,
-            object: nil,
-            queue: .main) { [weak self] _ in
-                guard let self = self else { return }
-                self.updateTableViewAnimated()
-            }
-        imagesListService.fetchPhotosNextPage()
+        presenter?.view = self
+        presenter?.viewDidLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -52,10 +48,11 @@ final class ImagesListViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: ImagesListService.didChangeNotification, object: nil)
     }
     
-    private func updateTableViewAnimated() {
+    func updateTableViewAnimated() {
         let oldCount = photos.count
-        let newCount = imagesListService.photos.count
-        photos = imagesListService.photos
+        guard let newCount = presenter?.imagesListService.photos.count else { return }
+        guard let newPhotos = presenter?.imagesListService.photos else { return }
+        photos = newPhotos
         if oldCount != newCount {
             tableView.performBatchUpdates{
                 let indexPaths = (oldCount..<newCount).map { IndexPath(row: $0, section: 0) }
@@ -96,6 +93,7 @@ extension ImagesListViewController {
             cell.dateLabel.text = ""
         }
         let isLiked = imagesListService.photos[IndexPath.row].isLiked == false
+        cell.likeButton.accessibilityIdentifier = "likeButton"
         let likeImage = isLiked ? UIImage(named: "NO_Like") : UIImage(named: "Like")
         cell.likeButton.setImage(likeImage, for: .normal)
         cell.selectionStyle = .none
@@ -148,15 +146,11 @@ extension ImagesListViewController: ImagesListCellDelegate {
     }
 //MARK: - Alert
     
-    private func showLikeErrorAlert(with error: Error) {
-        let alert = UIAlertController(
-            title: "Что-то пошло не так(",
-            message: "Не удалось поставить лайк",
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
+    //MARK: - Alert
+    func showLikeErrorAlert(with error: Error)  {
+        guard let alert = presenter?.makeAlert(with: Error.self as! Error) else { return }
+        present(alert, animated: true, completion: nil)
+    }}
 
 extension ImagesListViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

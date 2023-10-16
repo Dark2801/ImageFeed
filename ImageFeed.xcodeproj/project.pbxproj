@@ -13,6 +13,9 @@
 		BD04B4EF2ADDB37E00930802 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4EE2ADDB37E00930802 /* ProfileTests.swift */; };
 		BD04B4F12ADDB3B900930802 /* ProfilePresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4F02ADDB3B900930802 /* ProfilePresenterSpy.swift */; };
 		BD04B4F32ADDB3EE00930802 /* ProfileViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4F22ADDB3EE00930802 /* ProfileViewControllerSpy.swift */; };
+		BD04B4F52ADDB49400930802 /* ImagesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4F42ADDB49400930802 /* ImagesListTests.swift */; };
+		BD04B4F72ADDB4C100930802 /* ImageListViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4F62ADDB4C100930802 /* ImageListViewControllerSpy.swift */; };
+		BD04B4F92ADDB4E600930802 /* ImageListPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD04B4F82ADDB4E600930802 /* ImageListPresenterSpy.swift */; };
 		BD1C4C952A9A480D00A2CBA9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4C942A9A480D00A2CBA9 /* AuthViewController.swift */; };
 		BD1C4C972A9A506D00A2CBA9 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C4C962A9A506D00A2CBA9 /* WebViewViewController.swift */; };
 		BD3B7A862AB73D4C00210ADC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BD3B7A852AB73D4C00210ADC /* Kingfisher */; };
@@ -70,6 +73,9 @@
 		BD04B4EE2ADDB37E00930802 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		BD04B4F02ADDB3B900930802 /* ProfilePresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterSpy.swift; sourceTree = "<group>"; };
 		BD04B4F22ADDB3EE00930802 /* ProfileViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerSpy.swift; sourceTree = "<group>"; };
+		BD04B4F42ADDB49400930802 /* ImagesListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListTests.swift; sourceTree = "<group>"; };
+		BD04B4F62ADDB4C100930802 /* ImageListViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewControllerSpy.swift; sourceTree = "<group>"; };
+		BD04B4F82ADDB4E600930802 /* ImageListPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListPresenterSpy.swift; sourceTree = "<group>"; };
 		BD1C4C942A9A480D00A2CBA9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BD1C4C962A9A506D00A2CBA9 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		BD567BB02AA064590029A763 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +145,9 @@
 				BD04B4EE2ADDB37E00930802 /* ProfileTests.swift */,
 				BD04B4F02ADDB3B900930802 /* ProfilePresenterSpy.swift */,
 				BD04B4F22ADDB3EE00930802 /* ProfileViewControllerSpy.swift */,
+				BD04B4F42ADDB49400930802 /* ImagesListTests.swift */,
+				BD04B4F62ADDB4C100930802 /* ImageListViewControllerSpy.swift */,
+				BD04B4F82ADDB4E600930802 /* ImageListPresenterSpy.swift */,
 			);
 			path = ImageFeedTests;
 			sourceTree = "<group>";
@@ -412,9 +421,12 @@
 			files = (
 				BD04B4E42ADDAD4B00930802 /* WebViewTests.swift in Sources */,
 				BD04B4EF2ADDB37E00930802 /* ProfileTests.swift in Sources */,
+				BD04B4F72ADDB4C100930802 /* ImageListViewControllerSpy.swift in Sources */,
 				BD04B4ED2ADDAF7B00930802 /* WebViewViewControllerSpy.swift in Sources */,
 				BD04B4F12ADDB3B900930802 /* ProfilePresenterSpy.swift in Sources */,
+				BD04B4F52ADDB49400930802 /* ImagesListTests.swift in Sources */,
 				BD04B4EB2ADDAEED00930802 /* WebViewPresenterSpy.swift in Sources */,
+				BD04B4F92ADDB4E600930802 /* ImageListPresenterSpy.swift in Sources */,
 				BD04B4F32ADDB3EE00930802 /* ProfileViewControllerSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
