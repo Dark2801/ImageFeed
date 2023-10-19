@@ -44,7 +44,7 @@ final class ImagesListPresenter: ImagesListPresenterProtocol {
     
     func setLike(photoId: String, isLike: Bool, _ completion: @escaping (Result<Void, Error>) -> Void) {
         imagesListService.changeLike(photoId: photoId, isLike: isLike, {[weak self] result in
-            guard let self = self else { return }
+            guard self != nil else { return }
             switch result{
             case .success(_):
                 completion(.success(()))

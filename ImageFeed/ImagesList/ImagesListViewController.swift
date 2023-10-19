@@ -16,20 +16,20 @@ protocol ImagesListViewControllerProtocol: AnyObject {
 
 final class ImagesListViewController: UIViewController, ImagesListViewControllerProtocol {
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
-    
     private let imagesListService = ImagesListService.shared
     var photos: [Photo] = []
 
     private lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        
-        return dateFormatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
     }()
+    
     lazy var presenter: ImagesListPresenterProtocol? = {
         return ImagesListPresenter()
     } ()
+    
     @IBOutlet private var tableView: UITableView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -114,8 +114,8 @@ extension ImagesListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == imagesListService.photos.count {
-            imagesListService.fetchPhotosNextPage()
+        if let visibleIndexPaths = tableView.indexPathsForVisibleRows, visibleIndexPaths.contains(indexPath) {
+            presenter?.checkCompletedList(indexPath)
         }
     }
 }
@@ -124,40 +124,35 @@ extension ImagesListViewController: ImagesListCellDelegate {
     func imageListCellDidTapLike(_ cell: ImagesListCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let photo = photos[indexPath.row]
-        // Покажем лоадер
         UIBlockingProgressHUD.show()
-        imagesListService.changeLike(photoId: photo.id, isLike: photo.isLiked) { result in
+        presenter?.setLike(photoId: photo.id, isLike: photo.isLiked) { result in
             DispatchQueue.main.async {
                 switch result {
                 case.success:
-                    // Синхронизируем массив картинок с сервером
-                    self.photos = self.imagesListService.photos
-                    // Изменяем индикацию лайка картинки
+                    guard let newPhotos = self.presenter?.imagesListService.photos else { return }
+                    self.photos = newPhotos
                     cell.setIsLiked(isLiked: self.photos[indexPath.row].isLiked)
-                    // Уберем лоадер
                     UIBlockingProgressHUD.dismiss()
                 case.failure(let error):
-                    // Уберем лоадер
                     UIBlockingProgressHUD.dismiss()
                     self.showLikeErrorAlert(with: error)
                 }
             }
         }
     }
-//MARK: - Alert
-    
     //MARK: - Alert
     func showLikeErrorAlert(with error: Error)  {
         guard let alert = presenter?.makeAlert(with: Error.self as! Error) else { return }
         present(alert, animated: true, completion: nil)
-    }}
+    }
+}
 
 extension ImagesListViewController: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
         guard let imagesListCell = cell as? ImagesListCell else {
             return UITableViewCell()
@@ -167,3 +162,4 @@ extension ImagesListViewController: UITableViewDataSource {
         return imagesListCell
     }
 }
+
