@@ -209,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1E9-7Y-iSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="381" y="-1513"/>
+            <point key="canvasLocation" x="380.91603053435114" y="-1513.3802816901409"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="8e1-es-ypK">
@@ -244,6 +244,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="16"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="Authenticate"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="dc2-mJ-c2v" kind="presentation" identifier="ShowWebView" modalPresentationStyle="overFullScreen" id="5jX-nZ-ghz"/>
