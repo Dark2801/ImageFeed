@@ -25,14 +25,14 @@ import XCTest
          XCTAssertTrue(loginTextField.waitForExistence(timeout: 5))
          
          loginTextField.tap()
-         loginTextField.typeText("ripper2801@gmail.com")
+         loginTextField.typeText("")
          webView.swipeUp()
          
          let passwordTextField = webView.descendants(matching: .secureTextField).element
          XCTAssertTrue(passwordTextField.waitForExistence(timeout: 5))
          
          passwordTextField.tap()
-         passwordTextField.typeText("28011985")
+         passwordTextField.typeText("")
          webView.swipeUp()
          
          webView.buttons["Login"].tap()
@@ -75,8 +75,8 @@ import XCTest
          sleep(3)
          app.tabBars.buttons.element(boundBy: 1).tap()
          
-         XCTAssertTrue(app.staticTexts["Andrew Merzlikin"].exists)
-         XCTAssertTrue(app.staticTexts["@def2801"].exists)
+         XCTAssertTrue(app.staticTexts[""].exists)
+         XCTAssertTrue(app.staticTexts[""].exists)
          
          app.buttons["logoutButton"].tap()
          
