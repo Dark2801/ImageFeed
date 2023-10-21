@@ -25,14 +25,14 @@ import XCTest
          XCTAssertTrue(loginTextField.waitForExistence(timeout: 5))
          
          loginTextField.tap()
-         loginTextField.typeText("ripper2801@mail.ru")
+         loginTextField.typeText("ripper2801@gmail.com")
          webView.swipeUp()
          
          let passwordTextField = webView.descendants(matching: .secureTextField).element
          XCTAssertTrue(passwordTextField.waitForExistence(timeout: 5))
          
          passwordTextField.tap()
-         passwordTextField.typeText("230710sva")
+         passwordTextField.typeText("28011985")
          webView.swipeUp()
          
          webView.buttons["Login"].tap()
@@ -70,6 +70,21 @@ import XCTest
          
          let navBackButtonWhiteButton = app.buttons["backButton"]
          navBackButtonWhiteButton.tap()
+     }
+     func testProfile() throws {
+         sleep(3)
+         app.tabBars.buttons.element(boundBy: 1).tap()
+         
+         XCTAssertTrue(app.staticTexts["Andrew Merzlikin"].exists)
+         XCTAssertTrue(app.staticTexts["@def2801"].exists)
+         
+         app.buttons["logoutButton"].tap()
+         
+         app.alerts["Пока, пока!"].scrollViews.otherElements.buttons["Да"].tap()
+         
+         let authButton = app.buttons["Authenticate"]
+         XCTAssertTrue(authButton.waitForExistence(timeout: 5))
+         
      }
     
 }

@@ -79,7 +79,7 @@ extension ImagesListService {
         assert(Thread.isMainThread)
         guard task == nil else { return }
         
-        let page = lastLoadedPage == nil ? 1 : lastLoadedPage! + 1
+        let page = (lastLoadedPage ?? 0) + 1
         guard let token = storageToken.token else { return }
         guard let request = fetchImagesListRequest(token, page: String(page), perPage: perPage) else { return }
         let task = URLSession.shared.objectTask(for: request) { [weak self] (result: Result<[PhotoResult], Error>) in
