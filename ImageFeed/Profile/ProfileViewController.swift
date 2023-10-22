@@ -7,13 +7,28 @@
 import UIKit
 import Kingfisher
 
-class ProfileViewController: UIViewController {
-    private let storageToken = OAuth2TokenStorage()
-    private let profileService = ProfileService.shared
-    private let profileImage = UIImage(named: "person.crop.circle.fill")
-    private var profileImageServiceObserver: NSObjectProtocol?
+protocol ProfileViewControllerProtocol: AnyObject {
+    var presenter: ProfilePresenterProtocol { get set }
+    var imageView: UIImageView { get set }
+    var nameLabel: UILabel { get set }
+    var nicknameLabel: UILabel { get set }
+    var textLabel: UILabel { get set }
+    func updateAvatar()
+    func configureViews()
+    func configureConstraints()
+    func showLogoutAlert()
+}
+
+final class ProfileViewController: UIViewController, ProfileViewControllerProtocol {
+    lazy var presenter: ProfilePresenterProtocol = {
+        return ProfilePresenter()
+    }()
     
-    private lazy var imageView : UIImageView = {
+    
+    private let profileImage = UIImage(named: "person.crop.circle.fill")
+    
+    
+    lazy var imageView : UIImageView = {
         let imageView = UIImageView(image: profileImage)
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
@@ -22,7 +37,7 @@ class ProfileViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var nameLabel : UILabel = {
+    lazy var nameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Екатерина Новикова"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 23)
@@ -31,7 +46,7 @@ class ProfileViewController: UIViewController {
         return nameLabel
     }()
     
-    private lazy var nicknameLabel : UILabel = {
+    lazy var nicknameLabel : UILabel = {
         let nicknameLabel = UILabel()
         nicknameLabel.text = "@ekaterina_nov"
         nicknameLabel.font = UIFont.systemFont(ofSize: 13)
@@ -40,7 +55,7 @@ class ProfileViewController: UIViewController {
         return nicknameLabel
     }()
     
-    private lazy var textLabel : UILabel = {
+    lazy var textLabel : UILabel = {
         let textLabel = UILabel()
         textLabel.text = "Hello, world!"
         textLabel.font = UIFont.systemFont(ofSize: 13)
@@ -56,6 +71,7 @@ class ProfileViewController: UIViewController {
             action: #selector(self.didTapButton))
         button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityIdentifier = "logoutButton"
         return button
     }()
     
@@ -64,12 +80,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configureViews()
         configureConstraints()
-        updateProfileDetails(profile: profileService.profile!)
         updateAvatar()
-        observeAvatarChanges()
+        presenter.view = self
+        presenter.viewDidLoad()
     }
     
-    private func configureViews() {
+    func configureViews() {
         view.addSubview(imageView)
         view.addSubview(nameLabel)
         view.addSubview(nicknameLabel)
@@ -77,7 +93,7 @@ class ProfileViewController: UIViewController {
         view.addSubview(button)
     }
     
-    private func configureConstraints() {
+    func configureConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
@@ -98,31 +114,6 @@ class ProfileViewController: UIViewController {
     private func didTapButton() {
         showLogoutAlert()
     }
-    
-    private func logout() {
-        storageToken.clearToken()
-        WebViewViewController.clean()
-        cleanServicesData()
-        tabBarController?.dismiss(animated: true)
-        guard let window = UIApplication.shared.windows.first else {
-            fatalError("Invalid Configuration") }
-        window.rootViewController = SplashViewController()
-    }
-    
-    private func showLogoutAlert() {
-        let alert = UIAlertController(
-            title: "Пока, пока!",
-            message: "Уверены, что хотите выйти?",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { [weak self] action in
-            guard let self = self else { return }
-            self.logout()
-        }))
-        alert.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -133,31 +124,9 @@ class ProfileViewController: UIViewController {
         ProfileImageService.shared.clean()
     }
 }
-// MARK: - Update Profile data
-extension ProfileViewController {
-    private func updateProfileDetails(profile: Profile?) {
-        guard let profile = profileService.profile else { return }
-        nameLabel.text = profile.name
-        nicknameLabel.text = profile.loginName
-        textLabel.text = profile.bio
-    }
-}
-
 // MARK: - Notification
 extension ProfileViewController {
-    private func observeAvatarChanges() {
-        profileImageServiceObserver = NotificationCenter.default
-            .addObserver(
-                forName: ProfileImageService.DidChangeNotification,
-                object: nil,
-                queue: .main
-            ) { [weak self] _ in
-                guard let self = self else { return }
-                self.updateAvatar()
-            }
-    }
-    
-    private func updateAvatar() {
+    internal func updateAvatar() {
         view.backgroundColor = .ypBlack
         guard
             let profileImageURL = ProfileImageService.shared.avatarURL,
@@ -171,5 +140,13 @@ extension ProfileViewController {
         let cache = ImageCache.default
         cache.clearDiskCache()
         cache.clearMemoryCache()
+    }
+}
+// MARK: - Exit with Alert
+extension ProfileViewController {
+    
+    func showLogoutAlert() {
+        let alert = presenter.makeAlert()
+        present(alert, animated: true, completion: nil)
     }
 }
