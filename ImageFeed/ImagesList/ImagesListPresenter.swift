@@ -50,7 +50,6 @@ final class ImagesListPresenter: ImagesListPresenterProtocol {
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
-                print(error.localizedDescription)
             }
         })
     }
