@@ -34,14 +34,13 @@ struct AuthConfiguration {
     
     static var standard: AuthConfiguration {
         return AuthConfiguration(accessKey: APIConstants.accessKey,
-                                 secretKey: APIConstants.secretKey,
-                                 redirectURI: APIConstants.redirectURI,
-                                 accessScope: APIConstants.accessScope,
-                                 defaultBaseURL: APIConstants.defaultBaseURL,
-                                 authURLString: APIConstants.authorizeURLString,
-                                 
-                                 code: APIConstants.code,
-                                 authorizationPath: APIConstants.authorizationPath,
-                                 baseURL: APIConstants.baseURL)
+        secretKey: APIConstants.secretKey,
+        redirectURI: APIConstants.redirectURI,
+        accessScope: APIConstants.accessScope,
+        defaultBaseURL: APIConstants.defaultBaseURL,
+        authURLString: APIConstants.authorizeURLString,
+        code: APIConstants.code,
+        authorizationPath: APIConstants.authorizationPath,
+        baseURL: APIConstants.baseURL)
     }
 }
