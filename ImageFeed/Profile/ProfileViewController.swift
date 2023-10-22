@@ -24,11 +24,11 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         return ProfilePresenter()
     }()
     
- 
-    private let profileImage = UIImage(named: "person.crop.circle.fill")
-   
     
-        lazy var imageView : UIImageView = {
+    private let profileImage = UIImage(named: "person.crop.circle.fill")
+    
+    
+    lazy var imageView : UIImageView = {
         let imageView = UIImageView(image: profileImage)
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
@@ -37,7 +37,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         return imageView
     }()
     
-        lazy var nameLabel : UILabel = {
+    lazy var nameLabel : UILabel = {
         let nameLabel = UILabel()
         nameLabel.text = "Екатерина Новикова"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 23)
@@ -46,7 +46,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         return nameLabel
     }()
     
-        lazy var nicknameLabel : UILabel = {
+    lazy var nicknameLabel : UILabel = {
         let nicknameLabel = UILabel()
         nicknameLabel.text = "@ekaterina_nov"
         nicknameLabel.font = UIFont.systemFont(ofSize: 13)
@@ -55,7 +55,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         return nicknameLabel
     }()
     
-        lazy var textLabel : UILabel = {
+    lazy var textLabel : UILabel = {
         let textLabel = UILabel()
         textLabel.text = "Hello, world!"
         textLabel.font = UIFont.systemFont(ofSize: 13)
@@ -85,7 +85,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         presenter.viewDidLoad()
     }
     
-        func configureViews() {
+    func configureViews() {
         view.addSubview(imageView)
         view.addSubview(nameLabel)
         view.addSubview(nicknameLabel)
@@ -93,7 +93,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllerProtoc
         view.addSubview(button)
     }
     
-        func configureConstraints() {
+    func configureConstraints() {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
