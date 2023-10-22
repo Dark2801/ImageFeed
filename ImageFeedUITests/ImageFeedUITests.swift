@@ -11,7 +11,7 @@ import XCTest
      private let app = XCUIApplication() // переменная приложения
 
     override func setUpWithError() throws {
-       continueAfterFailure = true
+       continueAfterFailure = false
         app.launch()
 }
      func testAuth() throws {
